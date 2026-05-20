@@ -1,29 +1,543 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zahid Esad | Portfolyo</title>
-    <style>
-        body { font-family: 'Google Sans', Arial, sans-serif; background: #121212; color: #ffffff; text-align: center; padding: 50px 20px; line-height: 1.25; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { color: #00adb5; font-size: 2.5rem; margin-bottom: 20px; }
-        p { font-size: 1.1rem; color: #eeeeee; max-width: 600px; margin: 0 auto 30px auto; }
-        .cta-btn { display: inline-block; background: #00adb5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
-        .cta-btn:hover { background: #007a80; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Zahid Esad | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#00d2df;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#00d2df;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px 60px;
+    background:
+    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:850px;
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#00d2df;
+}
+
+.hero p{
+    font-size:1.15rem;
+    color:#d8d8d8;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#00d2df;
+    color:black;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:#00a8b3;
+}
+
+.btn-secondary{
+    border:1px solid #00d2df;
+    color:#00d2df;
+}
+
+.btn-secondary:hover{
+    background:#00d2df;
+    color:black;
+}
+
+/* SECTION */
+
+section{
+    padding:110px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#00d2df;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#aaaaaa;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-card{
+    background:#181818;
+    padding:40px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.05);
+    transition:.4s;
+}
+
+.about-card:hover{
+    transform:translateY(-8px);
+}
+
+.about-card h3{
+    color:#00d2df;
+    margin-bottom:18px;
+    font-size:1.4rem;
+}
+
+/* VIDEO SECTION */
+
+.video-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.video-card{
+    background:#181818;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.video-card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.video-card iframe{
+    width:100%;
+    height:220px;
+    border:none;
+}
+
+.video-content{
+    padding:24px;
+}
+
+.video-content h3{
+    margin-bottom:10px;
+}
+
+.video-content p{
+    color:#bdbdbd;
+    line-height:1.7;
+}
+
+/* SERVICES */
+
+.services-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.service-box{
+    background:#181818;
+    padding:35px;
+    border-radius:22px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.service-box:hover{
+    transform:translateY(-8px);
+    border-color:#00d2df;
+}
+
+.service-box h3{
+    color:#00d2df;
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:#cccccc;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#aaaaaa;
+    background:#0b0b0b;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        gap:14px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Zahid Esad</h1>
-        
-        <!-- TR Açıklama -->
-        <p>Dijital dünyada izleyicinin dikkatini yakalayan, yüksek enerjili ve dinamik video içerikleri (Shorts, Reels, YouTube) kurguluyor; markalar için dikkat çekici görsel tasarımlar üretiyorum. Doğru ritim, akıcı altyazılar ve güçlü ses teorisiyle içeriklerinizi bir üst seviyeye taşımak için buradayım. Freelance projeleriniz ve iş birlikleri için benimle iletişime geçebilirsiniz.</p>
-        
-        <!-- EN Açıklama -->
-        <p>I craft high-energy, dynamic video content (Shorts, Reels, YouTube) that grabs attention, alongside striking visual designs for brands. I'm here to elevate your content using the right pacing, engaging captions, and solid sound design. Feel free to contact me for freelance projects and collaborations.</p>
-        
-        <a href="mailto:zesadcam@gmail.com" class="cta-btn">İletişime Geç / Contact Me</a>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Zahid Esad</div>
+
+        <div class="nav-links">
+            <a href="#about">Hakkımda</a>
+            <a href="#videos">Videolar</a>
+            <a href="#services">Hizmetler</a>
+            <a href="#contact">İletişim</a>
+        </div>
     </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Creative <span>Video Editor</span><br> & Designer</h1>
+
+        <p>
+            Shorts, Reels ve YouTube içerikleri için yüksek enerjili editler,
+            sinematik geçişler ve dikkat çekici tasarımlar üretiyorum.
+            İçeriklerinizi algoritmanın değil insanların durdurup izleyeceği hale getiriyorum.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#videos" class="btn btn-primary">Videolarımı Gör</a>
+
+            <a href="mailto:mail@gmail.com" class="btn btn-secondary">
+                İletişime Geç
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>Hakkımda</h2>
+        <p>Ben kimim?</p>
+    </div>
+
+    <div class="about">
+
+        <div class="about-card">
+            <h3>Türkçe</h3>
+
+            <p>
+                Dinamik sosyal medya içerikleri, profesyonel video editleri
+                ve modern görsel tasarımlar üretiyorum.
+                Özellikle kısa format içeriklerde izlenmeyi artıracak ritim,
+                altyazı ve geçiş sistemleri üzerine çalışıyorum.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3>English</h3>
+
+            <p>
+                I create dynamic social media content,
+                professional video edits and modern visual designs.
+                I mainly focus on high-retention short-form videos
+                with engaging pacing, subtitles and transitions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+    <div class="section-title">
+        <h2>Projeler & Videolar</h2>
+        <p>YouTube veya Shorts videolarını burada gösterebilirsin</p>
+    </div>
+
+    <div class="video-grid">
+
+        <!-- VIDEO 1 -->
+
+        <div class="video-card">
+
+            <!-- BURAYA YOUTUBE EMBED KOY -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen></iframe>
+
+            <div class="video-content">
+                <h3>YouTube Short Edit</h3>
+
+                <p>
+                    Hızlı geçişler, motion blur efektleri
+                    ve senkronize beat edit kullanıldı.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- VIDEO 2 -->
+
+        <div class="video-card">
+
+            <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw"
+            allowfullscreen></iframe>
+
+            <div class="video-content">
+                <h3>Cinematic Reel</h3>
+
+                <p>
+                    Sinematik renk düzenleme ve ses tasarımıyla
+                    oluşturulmuş örnek içerik.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- VIDEO 3 -->
+
+        <div class="video-card">
+
+            <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U"
+            allowfullscreen></iframe>
+
+            <div class="video-content">
+                <h3>Gaming Montage</h3>
+
+                <p>
+                    Oyun videoları için hızlı kurgu,
+                    efekt ve altyazı sistemleri.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-title">
+        <h2>Hizmetler</h2>
+        <p>Neler yapıyorum?</p>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-box">
+            <h3>Shorts / Reels Edit</h3>
+            <p>
+                Yüksek retention odaklı hızlı sosyal medya editleri.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <h3>YouTube Video Editing</h3>
+            <p>
+                Uzun format YouTube videoları için profesyonel kurgu.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <h3>Thumbnail Design</h3>
+            <p>
+                Tıklanma oranını artıracak dikkat çekici thumbnail tasarımları.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <h3>Brand Visuals</h3>
+            <p>
+                Sosyal medya markaları için modern tasarım sistemleri.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-title">
+        <h2>İletişim</h2>
+        <p>Bir proje mi var?</p>
+    </div>
+
+    <div class="contact">
+
+        <p>
+            Freelance işler, iş birlikleri veya içerik projeleri için
+            benimle iletişime geçebilirsin.
+        </p>
+
+        <a href="mailto:mail@gmail.com" class="btn btn-primary">
+            Mail Gönder
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Zahid Esad — All Rights Reserved.
+</footer>
+
 </body>
 </html>
